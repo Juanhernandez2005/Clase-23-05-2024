@@ -1,37 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <div class="wrapper">
-        <div class="ex1">
-            Hoja de vida<br />
-          </div>
-        
-    </div>
-    
+    <title>Document</title>
 </head>
 <body>
-    
-<center><h4>Juan David Hernandez</h4></center>
-<img src="Foto-CV-Hombre.jpg" class="rounded float-start" alt="..." width="150" height="200">
-<p>Persona actitudinal con derechos y moral ampliamente aplicable para cualquier entorno de trabajo</p> <br>
-<button type="button" class="btn btn-primary" disabled>CONTACTO </button>
-<div class="mx-auto p-2" style="width: 200px;">
-    Celular 3214895032 <br>
-    Gmail: Juan@gmail.com
-    Direccion: Calle 15 #21-32
-  </div>
-  <button type="button" class="btn btn-primary" disabled>Experiencia</button>
-<div class="mx-auto p-2" style="width: 200px;">
-    Trabajo en empresa XYZ por 2 años <br>
-    Cursos basicos Programacion
-    Resolucion de problemas
-  </div>
-<link rel="stylesheet" href="js.js">
+    <input type="button" value="Genera una tabla" onclick="genera_tabla()" />
+<script>
+    function genera_tabla() {
+        // Obtener la referencia del elemento body
+        var body = document.getElementsByTagName("body")[0];
+      
+        // Crea un elemento <table> y un elemento <tbody>
+        var tabla = document.createElement("table");
+        var tblBody = document.createElement("tbody");
+      
+        // Crea las celdas
+        for (var i = 0; i < 2; i++) {
+          // Crea las hileras de la tabla
+          var hilera = document.createElement("tr");
+      
+          for (var j = 0; j < 2; j++) {
+            // Crea un elemento <td> y un nodo de texto, haz que el nodo de
+            // texto sea el contenido de <td>, ubica el elemento <td> al final
+            // de la hilera de la tabla
+            var celda = document.createElement("td");
+            var textoCelda = document.createTextNode(
+              "Genero " + i + ", dia 1 " + j,
+            );
+            celda.appendChild(textoCelda);
+            hilera.appendChild(celda);
+          }
+      
+          // agrega la hilera al final de la tabla (al final del elemento tblbody)
+          tblBody.appendChild(hilera);
+        }
+      
+        // posiciona el <tbody> debajo del elemento <table>
+        tabla.appendChild(tblBody);
+        // appends <table> into <body>
+        body.appendChild(tabla);
+        // modifica el atributo "border" de la tabla y lo fija a "2";
+        tabla.setAttribute("border", "2");
+      }</script>
 </body>
 </html>
